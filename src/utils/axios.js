@@ -4,7 +4,7 @@ import { clearUserData, getToken } from "./helpers";
 
 // Create axios instance with base URL
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/api",
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/",
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",

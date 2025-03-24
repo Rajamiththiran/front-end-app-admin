@@ -83,12 +83,34 @@ export const PAGINATION = {
 // API Endpoints (you might want to move these to a separate file)
 export const API_ENDPOINTS = {
   AUTH: {
-    ADMIN_SEND_OTP: "/auth/admin/send-otp",
-    ADMIN_CHECK_OTP: "/auth/admin/verify-otp",
-    STAFF_SEND_OTP: "/auth/staff/send-otp",
-    STAFF_CHECK_OTP: "/auth/staff/verify-otp",
-    STUDENT_SEND_OTP: "/auth/student/send-otp",
-    STUDENT_CHECK_OTP: "/auth/student/verify-otp",
+    ADMIN_SEND_OTP: "/api/admin/auth/send-otp",
+    ADMIN_CHECK_OTP: "/api/admin/auth/check-otp",
   },
-  // Add other endpoint categories as needed
+  ADMIN: {
+    // Complaints endpoints
+    COMPLAINTS: "/api/admin/complaints/all",
+    COMPLAINT_DETAILS: "/api/admin/complaints",
+    AVAILABLE_STAFF: "/api/admin/complaints/staffs",
+    ASSIGN_COMPLAINT: "/api/admin/complaints/assign",
+    DROP_COMPLAINT: "/api/admin/complaints/drop",
+    COMPLAINT_STATS: "/api/admin/complaints/stats",
+
+    // Staff endpoints
+    STAFF: "/api/admin/staffs/all",
+    STAFF_DETAILS: "/api/admin/staffs",
+    ADD_STAFF: "/api/admin/staffs/new",
+    EDIT_STAFF: "/api/admin/staffs/edit",
+    DELETE_STAFF: "/api/admin/staffs/delete",
+    ACTIVATE_STAFF: "/api/admin/staffs/activate",
+    DEACTIVATE_STAFF: "/api/admin/staffs/deactivate",
+
+    // Student endpoints
+    STUDENTS: "/api/admin/students/all",
+    STUDENT_DETAILS: "/api/admin/students",
+    ADD_STUDENT: "/api/admin/students/new",
+    EDIT_STUDENT: "/api/admin/students/edit",
+    DELETE_STUDENT: "/api/admin/students/delete",
+    ACTIVATE_STUDENT: "/api/admin/students/activate",
+    DEACTIVATE_STUDENT: "/api/admin/students/deactivate",
+  },
 };

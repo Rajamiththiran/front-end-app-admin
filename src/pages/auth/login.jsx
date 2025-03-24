@@ -1,16 +1,12 @@
 // src/pages/auth/login.jsx
 import { Box, CircularProgress, Container, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import LoginForm from "../../components/auth/loginForm";
 import Alert from "../../components/common/alert";
 import useAuth from "../../hooks/useAuth";
 import { ROUTES } from "../../utils/constants";
 
-/**
- * Login page component for admin authentication
- * Handles the first step of OTP-based login (email submission)
- */
 const Login = () => {
   const {
     isAuthenticated,
@@ -24,15 +20,21 @@ const Login = () => {
     resetOtpState,
   } = useAuth();
 
+  const navigate = useNavigate();
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [alertSeverity, setAlertSeverity] = useState("info");
 
-  // Reset OTP state when component mounts
   useEffect(() => {
-    // Ensure resetOtpState is called
-    resetOtpState();
+    resetOtpState(); // Reset OTP state on mount
   }, [resetOtpState]);
+
+  // Redirect to VERIFY_OTP page if OTP is sent
+  useEffect(() => {
+    if (otpSent && otpEmail) {
+      navigate(ROUTES.VERIFY_OTP, { replace: true });
+    }
+  }, [otpSent, otpEmail, navigate]);
 
   // Handle OTP send request
   const handleSendOtp = async (email) => {
@@ -57,14 +59,9 @@ const Login = () => {
     clearError();
   };
 
-  // Redirect to dashboard if already authenticated - but only after loading completes
+  // Redirect to dashboard if authenticated
   if (isAuthenticated && !loading) {
     return <Navigate to={ROUTES.DASHBOARD} replace />;
-  }
-
-  // Redirect to OTP verification page if OTP is sent
-  if (otpSent && otpEmail) {
-    return <Navigate to={ROUTES.VERIFY_OTP} replace />;
   }
 
   return (
@@ -73,7 +70,6 @@ const Login = () => {
       className="min-h-screen flex items-center justify-center py-12"
     >
       <Box className="w-full">
-        {/* Logo/Brand */}
         <Box className="text-center mb-8">
           <Typography
             variant="h4"
@@ -87,7 +83,6 @@ const Login = () => {
           </Typography>
         </Box>
 
-        {/* Error alert */}
         {error && (
           <Alert
             severity="error"
@@ -100,7 +95,6 @@ const Login = () => {
           </Alert>
         )}
 
-        {/* Success/info alert */}
         <Alert
           severity={alertSeverity}
           showCloseButton
@@ -112,14 +106,12 @@ const Login = () => {
           {alertMessage}
         </Alert>
 
-        {/* Login form */}
         <LoginForm
           onSendOtp={handleSendOtp}
           loading={otpSending}
           error={error}
         />
 
-        {/* Footer text */}
         <Box className="mt-8 text-center">
           <Typography variant="caption" color="textSecondary">
             &copy; {new Date().getFullYear()} Admin Portal • All rights reserved
