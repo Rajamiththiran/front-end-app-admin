@@ -1,0 +1,132 @@
+Folder PATH listing for volume OS
+Volume serial number is E680-76F0
+C:.
+|   .env
+|   .gitignore
+|   eslint.config.js
+|   frontend-structure.txt
+|   index.html
+|   package-lock.json
+|   package.json
+|   README.md
+|   tailwind.config.js
+|   vite.config.js
+|   
++---public
+\---src
+    |   App.jsx
+    |   index.css
+    |   main.jsx
+    |   theme.js
+    |   
+    +---assets
+    |   +---icons
+    |   \---images
+    +---components
+    |   +---auth
+    |   |       loginForm.jsx
+    |   |       otpVarification.jsx
+    |   |       
+    |   +---common
+    |   |       alert.jsx
+    |   |       button.jsx
+    |   |       card.jsx
+    |   |       input.jsx
+    |   |       modal.jsx
+    |   |       pagination.jsx
+    |   |       table.jsx
+    |   |       tabs.jsx
+    |   |       
+    |   +---complaints
+    |   |       assignComplaint.jsx
+    |   |       complaintDetails.jsx
+    |   |       complaintList.jsx
+    |   |       complaintStat.jsx
+    |   |       
+    |   +---dashboard
+    |   |       activityFeed.jsx
+    |   |       overviewChart.jsx
+    |   |       statCard.jsx
+    |   |       
+    |   +---layout
+    |   |       dashboardlayout.jsx
+    |   |       footer.jsx
+    |   |       header.jsx
+    |   |       sidebar.jsx
+    |   |       
+    |   +---staff
+    |   |       staffDetails.jsx
+    |   |       staffForm.jsx
+    |   |       staffList.jsx
+    |   |       
+    |   \---students
+    |           studentDetails.jsx
+    |           studentForm.jsx
+    |           studentList.jsx
+    |           
+    +---context
+    |       authContext.jsx
+    |       themeContext.jsx
+    |       
+    +---hooks
+    |       useAuth.js
+    |       usePagination.js
+    |       useSearch.js
+    |       useSortTable.js
+    |       
+    +---pages
+    |   |   notFound.jsx
+    |   |   
+    |   +---auth
+    |   |       login.jsx
+    |   |       verifyOtp.jsx
+    |   |       
+    |   +---complaints
+    |   |       complaintAnalytic.jsx
+    |   |       complaintDetails.jsx
+    |   |       complaints.jsx
+    |   |       
+    |   +---dashboard
+    |   |       dashboard.jsx
+    |   |       
+    |   +---settings
+    |   |       settings.jsx
+    |   |       
+    |   +---staff
+    |   |       addStaff.jsx
+    |   |       editStaff.jsx
+    |   |       staff.jsx
+    |   |       staffProfile.jsx
+    |   |       
+    |   \---students
+    |           addStudent.jsx
+    |           editStudent.jsx
+    |           studentProfile.jsx
+    |           students.jsx
+    |           
+    +---routes
+    |       appRoutes.jsx
+    |       privateRoutes.jsx
+    |       publicRoutes.jsx
+    |       
+    +---services
+    |       api.js
+    |       authService.js
+    |       complaintService.js
+    |       staffService.js
+    |       studentService.js
+    |       
+    +---store
+    |       authSlice.js
+    |       complaintSlice.js
+    |       staffSlice.js
+    |       store.js
+    |       studentSlice.js
+    |       
+    \---utils
+            axios.js
+            constants.js
+            formatters.js
+            helpers.js
+            validators.js
+            
